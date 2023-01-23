@@ -10,7 +10,10 @@ import { HttpExceptionFilter } from './helpers/filters/http-exeption.filter';
 
 async function start() {
   
-  const app = await NestFactory.create(AppModule, { cors: true })
+  const app = await NestFactory.create(AppModule, { cors: {
+    origin: ['https://bloger-platform.vercel.app', 'https://blogger-platform-admin.vercel.app', 'http://localhost:3000'],
+    credentials: true
+  }})
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
   app.useGlobalPipes(new ValidationPipe({
     stopAtFirstError: true,

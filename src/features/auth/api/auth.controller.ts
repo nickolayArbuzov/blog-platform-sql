@@ -50,6 +50,7 @@ export class AuthController {
             'refreshToken', 
             result.refreshToken, 
             {
+                sameSite: 'none',
                 httpOnly: true,
                 secure: true,
                 maxAge: 24*60*60*1000,
@@ -67,6 +68,7 @@ export class AuthController {
             'refreshToken', 
             result.refreshToken, 
             {
+                sameSite: 'none',
                 httpOnly: true,
                 secure: true,
                 maxAge: 24*60*60*1000,
